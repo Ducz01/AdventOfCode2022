@@ -5,8 +5,10 @@ with open('day5/input_duc.txt') as f:
     f.close()
 
 def parse_crates():
-    crates_array = crates_input.split('\n')[:8]
-    stack = [list() for i in range(9)]
+    crates_array = crates_input.split('\n')
+    number_of_cols = crates_array[-1].split(' ')[-2]
+    crates_array = crates_array[:len(crates_array)-1]
+    stack = [list() for i in range(int(number_of_cols))]
     for index in reversed(range(len(crates_array))):
         crate_line = crates_array[index]
         column_index = 0
